@@ -5,26 +5,19 @@
 Alejandro Villegas Lopez.<br />
 Daniel Molina Yepes.<br />
 Johan Estiven Ospina Hincapié .<br />
-Juan .<br />
-Pablo .<br />
-Johan .<br />
-
+Johan Camilo Suárez Lopera .<br />
+Juan Pablo Rios Arenas .<br />
+Juan Diego Isaza Londoño .<br />
 
 ## Descripción
-Libreria HTML5 para construir gráficos que son de utilidad en la fase de diseño de un proyecto.<br/>
-Las gráficas que contiene son:
-<ul>
-<li>Diagrama de flujo</li>
-<li>Diagrama de procesos</li>
-<li>Gráfica de barras</li>
-<li>Gráfica de torta</li>
-</ul>
-<br/>
+Aplicación JEE que simula una pararela de pago
 
-## Demo
-En la carpeta demo se encuentra un archivo con el nombre index.html
-que contiene los 4 Gráficos que permite esta libreria.
-Adicionalmente se tiene un archivo data.json con la información de los gráficos.
+## Instrucciones despliegue
+1. Iniciar el servidor Glassfish (glassfish-4.1.1).
+2. Iniciar la base de datos Derby.
+2. Correr el script "scripts/01-bd.sql" sobre una base de datos derby. (se puede usar el siguiente comando "ij 01-bd.sql").
+3. Ejecutar el comando "mvn package".
+4. Desplegar el archivo "target/laboratorio2.war" en el servidor Glassfish.
+5. Acceder mediante la siguiente ruta  http://localhost:8080/laboratorio2/
 
-## License
-DesignChart.js is available under the MIT license.
+
