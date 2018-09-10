@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="plantilla_sistema.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contenido">
+      <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+      <p:growl id="growl" showDetail="true" />
+      <div class="col-lg-6 offset-lg-3" style="margin-top:3em;">
+        <div style="border:1px solid #bbb;padding:2em;border-radius:1em;">
+            <h3 style="text-align:center;">Transacción exitosa</h3>
+            <pe:qrCode id="qrCodeElem" renderMethod="canvas" renderMode="2" text="#{loginBean.idTransaccion}" label="" size="200" fillColor="#000000" fontName="Ubuntu" fontColor="#01A9DB" ecLevel="H" radius="0.5"/>  
+        </div>
+      </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="plantilla_sistema.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contenido">
+      <f:metadata>
+          <f:event type="preRenderView" listener="#{loginBean.consultarPagos}"/>
+      </f:metadata>
+      <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+      <p:growl id="growl" showDetail="true" />
+      <div class="col-lg-6 offset-lg-3" style="margin-top:3em;">
+        <h3 style="text-align:center;">Pagos realizados</h3>
+        <p:dataTable value="#{loginBean.listaPagos}" var="pago" rows="10" emptyMessage="No se han realizado pagos"
+                                         paginator="true"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15">
+
+          <p:column headerText="Código QR transacción">
+            <pe:qrCode id="qrCodeElem" renderMethod="canvas" renderMode="2" text="#{pago.transaccion}" label="" size="70" fillColor="#000000" fontName="Ubuntu" fontColor="#01A9DB" ecLevel="H" radius="0.5"/>  
+          </p:column>
+
+          <p:column headerText="Nombre Cliente">
+            <p:outputLabel value="#{pago.nombre}" />
+          </p:column>
+
+          <p:column headerText="Email">
+            <p:outputLabel value="#{pago.email}" />
+          </p:column>
+
+          <p:column headerText="Tarjeta termina en">
+            <p:outputLabel value="#{loginBean.getSubCodigo(pago.numeroTarjeta)}" />
+          </p:column>
+
+          <p:column headerText="Valor transacción">
+            <p:outputLabel value="#{pago.valorTransaccion}" />
+          </p:column>
+          
+        </p:dataTable>
+      </div>
+    </ui:define>
+</ui:composition>
