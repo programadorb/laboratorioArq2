@@ -13,7 +13,7 @@
       </f:metadata>
       <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
       <p:growl id="growl" showDetail="true" />
-      <div class="col-lg-6 offset-lg-3" style="margin-top:3em;">
+      <div class="col-lg-12" style="margin-top:3em;">
         <h3 style="text-align:center;">Pagos realizados</h3>
         <p:dataTable value="#{loginBean.listaPagos}" var="pago" rows="10" emptyMessage="No se han realizado pagos"
                                          paginator="true"
@@ -34,6 +34,10 @@
 
           <p:column headerText="Tarjeta termina en">
             <p:outputLabel value="#{loginBean.getSubCodigo(pago.numeroTarjeta)}" />
+          </p:column>
+
+          <p:column headerText="Tipo tarjeta">
+            <p:outputLabel value="#{pago.tipoTarjeta}" />
           </p:column>
 
           <p:column headerText="Valor transacción">

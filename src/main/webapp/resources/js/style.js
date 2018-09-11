@@ -29,3 +29,11 @@ function rellenarMetodoPago(){
         }
     }
 }
+
+function exito(){
+    alert("todo salio bien");
+}
+
+window.onload = function () {
+//    rellenarMetodoPago();
+}

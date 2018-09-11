@@ -77,8 +77,10 @@
       <p:dialog id="dialogoCapcha" header="Confirmación Pago" widgetVar="dialogoCapcha" modal="true" resizable="false">
         <p:panel>
           <h:form>
-            <p:captcha label="Captcha" language="es" requiredMessage="Debe llenar el Captcha" required="true" />
-            <p:commandButton value="Confirmar pago" action="#{loginBean.enviar}" icon="ui-icon-check"/>
+            <p:messages showDetail="true"/>
+            <p:captcha label="Captcha" language="es" />
+            <p:commandButton value="Check" actionListener="#{loginBean.enviar}" ajax="false" icon="ui-icon-check"/>
+<!--            <p:captcha id="capchaItem" label="Captcha" language="es" requiredMessage="Debe llenar el Captcha" required="true" callback="exito" />-->
           </h:form>
         </p:panel>
       </p:dialog>

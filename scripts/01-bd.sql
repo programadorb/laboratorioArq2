@@ -1,4 +1,4 @@
-connect 'jdbc:derby://localhost:1530/laboratorio2;user=root;password=root;create=true;';
+connect 'jdbc:derby://localhost:1527/laboratorio2;user=root;password=root;create=true;';
 create table pago(
     id int PRIMARY KEY  GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), 
     nombre varchar(128) not null, 
