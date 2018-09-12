@@ -78,7 +78,7 @@
         <p:panel>
           <h:form>
             <p:messages showDetail="true"/>
-            <p:captcha label="Captcha" language="es" />
+            <p:captcha label="Captcha" language="es" required="true" requiredMessage="Debe diligenciar correctamente el captcha" />
             <p:commandButton value="Check" actionListener="#{pagoController.enviar}" ajax="false" icon="ui-icon-check"/>
 <!--            <p:captcha id="capchaItem" label="Captcha" language="es" requiredMessage="Debe llenar el Captcha" required="true" callback="exito" />-->
           </h:form>

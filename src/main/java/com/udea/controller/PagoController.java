@@ -1,4 +1,6 @@
 package com.udea.controller;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import com.udea.utils.Utilidades;
@@ -140,6 +142,13 @@ public class PagoController implements Serializable
         return "";
     }
 
+    public String getCodigoTarjeta(){
+        if(numeroTarjeta!=null && !numeroTarjeta.isEmpty()){
+            return "********"+numeroTarjeta.substring(numeroTarjeta.length()/2);
+        }
+        return "";
+    }
+
 
     public StreamedContent getBarcode() {
         return this.barcode;
@@ -159,6 +168,10 @@ public class PagoController implements Serializable
 
     private void error(String msg){
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, ""));
+    }
+
+    public String getFecha(){
+        return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
     }
 
     public void setMsg(String msg){this.msg=msg;}
