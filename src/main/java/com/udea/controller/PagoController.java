@@ -143,6 +143,7 @@ public class PagoController implements Serializable
     }
 
     public String getCodigoTarjeta(){
+        String numeroTarjeta=String.valueOf(this.numeroTarjeta);
         if(numeroTarjeta!=null && !numeroTarjeta.isEmpty()){
             return "********"+numeroTarjeta.substring(numeroTarjeta.length()/2);
         }
