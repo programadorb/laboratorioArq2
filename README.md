@@ -1,5 +1,7 @@
 ## Laboratorio Arquitectura 2
 
+Enlace guia laboratorio
+https://docs.google.com/document/d/1ywGLdSTqk3iRsMyDHdn54GW7hXTrrE4W_3DRT1ylrBI/edit?usp=sharing
 
 ## Integrantes
 Alejandro Villegas Lopez.<br />
