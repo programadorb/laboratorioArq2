@@ -13,7 +13,7 @@
       <div class="col-lg-6 offset-lg-3" style="margin-top:3em;">
         <div style="border:1px solid #bbb;padding:2em;border-radius:1em;">
             <h3 style="text-align:center;">Transacción exitosa</h3>
-            <pe:qrCode id="qrCodeElem" renderMethod="canvas" renderMode="2" text="#{loginBean.idTransaccion}" label="" size="200" fillColor="#000000" fontName="Ubuntu" fontColor="#01A9DB" ecLevel="H" radius="0.5"/>  
+            <pe:qrCode id="qrCodeElem" renderMethod="canvas" renderMode="2" text="#{pagoController.idTransaccion}" label="" size="200" fillColor="#000000" fontName="Ubuntu" fontColor="#01A9DB" ecLevel="H" radius="0.5"/>  
         </div>
       </div>
     </ui:define>

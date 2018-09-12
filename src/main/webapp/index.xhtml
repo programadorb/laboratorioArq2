@@ -9,7 +9,7 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="contenido">
       <f:metadata>
-        <f:event type="preRenderView" listener="#{loginBean.limpiar}"/>
+        <f:event type="preRenderView" listener="#{pagoController.limpiar}"/>
       </f:metadata>
       <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
       <div class="col-lg-6 offset-lg-3" style="margin-top:3em;">
@@ -19,36 +19,36 @@
             <p:growl id="growl" showDetail="false" />  
             <div class="form-group">
               <label >Nombre</label>
-              <p:inputText id="nombre" name="Nombre" value="#{loginBean.nombre}" styleClass="form-control nombre" required="true" requiredMessage="El campo Nombre es requerido"/>
+              <p:inputText id="nombre" name="Nombre" value="#{pagoController.nombre}" styleClass="form-control nombre" required="true" requiredMessage="El campo Nombre es requerido"/>
             </div>
             
             <div class="form-group">
               <label >Email</label>
-              <p:inputText value="#{loginBean.email}" name="Email" styleClass="form-control email" required="true" requiredMessage="El campo Email es requerido" />
+              <p:inputText value="#{pagoController.email}" name="Email" styleClass="form-control email" required="true" requiredMessage="El campo Email es requerido" />
             </div>
             
             <div class="form-group">
               <label >Número de tarjeta</label>
-              <p:inputText value="#{loginBean.numeroTarjeta}" name="Número tarjeta" styleClass="form-control numeroTarjeta" required="true" requiredMessage="El campo número de tarjeta es requerido" onchange="validarTipoTarjeta()" />
+              <p:inputText value="#{pagoController.numeroTarjeta}" name="Número tarjeta" styleClass="form-control numeroTarjeta" required="true" requiredMessage="El campo número de tarjeta es requerido" onchange="validarTipoTarjeta()" />
             </div>
 
             <div class="form-group">
               <label >Fecha vencimiento</label>
-              <p:inputText value="#{loginBean.fechaVencimiento}" styleClass="form-control fechaVencimiento" required="true" requiredMessage="El campo Fecha de vencimiento es requerido"  validatorMessage="El formato de la fecha de vencimiento no es correcto, debe ser MM/YYYY" placeholder="MM/YYYY">
+              <p:inputText value="#{pagoController.fechaVencimiento}" styleClass="form-control fechaVencimiento" required="true" requiredMessage="El campo Fecha de vencimiento es requerido"  validatorMessage="El formato de la fecha de vencimiento no es correcto, debe ser MM/YYYY" placeholder="MM/YYYY">
                 <f:validateRegex pattern="^[0-9][0-9]/[0-9][0-9][0-9][0-9]$" />
               </p:inputText>
             </div>
 
             <div class="form-group">
               <label >Código de seguridad</label>
-              <p:inputText value="#{loginBean.codigoSeguridad}" styleClass="form-control codigoSeguridad" required="true" requiredMessage="El código de seguridad debe tener 3 digitos" placeholder="000" title="Código seguridad" label="Código seguridad" validatorMessage="El código de seguridad debe estar compuesto de 3 digitos" >
+              <p:inputText value="#{pagoController.codigoSeguridad}" styleClass="form-control codigoSeguridad" required="true" requiredMessage="El código de seguridad debe tener 3 digitos" placeholder="000" title="Código seguridad" label="Código seguridad" validatorMessage="El código de seguridad debe estar compuesto de 3 digitos" >
                 <f:validateRegex pattern="^[0-9][0-9][0-9]$" />
               </p:inputText>
             </div>
 
             <div class="form-group">
               <label >Valor transacción</label>
-              <p:inputText value="#{loginBean.valorTransaccion}" name="Valor transacción" styleClass="form-control valorTransaccion" required="true" requiredMessage="El campo valor transacción es requerido" />
+              <p:inputText value="#{pagoController.valorTransaccion}" name="Valor transacción" styleClass="form-control valorTransaccion" required="true" requiredMessage="El campo valor transacción es requerido" />
             </div>
 
             <div class="form-group">
@@ -60,14 +60,14 @@
               <input id="tipoTarjetaDiners" type="radio" name="radioTipoTarjeta" value="diners" onclick="$('.tipoTarjeta')[0].value='diners';"> <p:graphicImage library="img" name="diners.jpg" width="40"  styleClass="logo-tarjeta" />  </input>
               <input id="tipoTarjetaAmerican" type="radio" name="radioTipoTarjeta" value="american" onclick="$('.tipoTarjeta')[0].value='american';"> <p:graphicImage library="img" name="american.png" width="40"  styleClass="logo-tarjeta" /> </input>  
 
-              <p:inputText value="#{loginBean.tipoTarjeta}" styleClass="form-control tipoTarjeta"  required="true" style="display:none;" requiredMessage="Debe selecciona un tipo de tarjeta" />
+              <p:inputText value="#{pagoController.tipoTarjeta}" styleClass="form-control tipoTarjeta"  required="true" style="display:none;" requiredMessage="Debe selecciona un tipo de tarjeta" />
             </div>
 
             <b/>            
             <b/>            
             <div class="col-lg-12">
               <div class="col-lg-6 offset-lg-3">
-                <p:commandButton value="Hacer pago" action="#{loginBean.validarPago}" icon="ui-icon-check" ajax="true" update="dialogoCapcha growl messages" />
+                <p:commandButton value="Hacer pago" action="#{pagoController.validarPago}" icon="ui-icon-check" ajax="true" update="dialogoCapcha growl messages" />
               </div>    
             </div>
           </h:form>
@@ -79,7 +79,7 @@
           <h:form>
             <p:messages showDetail="true"/>
             <p:captcha label="Captcha" language="es" />
-            <p:commandButton value="Check" actionListener="#{loginBean.enviar}" ajax="false" icon="ui-icon-check"/>
+            <p:commandButton value="Check" actionListener="#{pagoController.enviar}" ajax="false" icon="ui-icon-check"/>
 <!--            <p:captcha id="capchaItem" label="Captcha" language="es" requiredMessage="Debe llenar el Captcha" required="true" callback="exito" />-->
           </h:form>
         </p:panel>
